@@ -1,6 +1,70 @@
 [
   {
-    "name": "Угольный генератор",
-    "data": "type: \"PowerGenerator\"\nname: \"Угольный генератор\"\ndescription: \"Вырабатывает энергию путём сжигания горючих\nматериалов, таких как уголь\"\nitemCapacity: 10\nsize: 1\npowerProduction:1\nupdateEffect:\"smeltsmoke\"\nconsumes: {\nitems: { items:[ coal/1] }\n}\nrequirements: [\ncopper/25\nlead/15\n]\nhasPower: true\ncategory: \"power\"\nresearch: \"router\""
+    "name": "Простой генератор",
+    "data": "type: \"ConsumeGenerator\"\nname: \"Генератор класса ConsumeGenerator\"\ndescription: \"ConsumeGenerator может потреблять предметы и жидкости, вместе и отдельно.\"\nitemCapacity: 10 //емкость блока в предметах\nsize: 1 //размер блока, квадрат\npowerProduction:1 //создание энергии\nupdateEffect:\"smeltsmoke\"\nconsumes: { //потребление\nitems: { \nitems:[ \ncoal/1\n]\n}\n}\nrequirements: [ //затраты на строительство\ncopper/25\nlead/15\n]\nhasPower: true //может ли взаимодействовать с энергией\ncategory: \"power\" //категория, где искать блок\nresearch: \"router\" //требование для разблокировки в дереве технологий"
+  },
+  {
+    "name": "Аккумулятор",
+    "data": "name: \"Аккумулятор\\\"\ntype: \"Battery\"\nsize: 1\ndescription: \"Накапливает и/или выдает энергию, в зависимости от ситуации\"\nhasPower:true\nbuildCostMultiplier:0.675\nconsumes:{\npowerBuffered: 4000 //емкость аккумулятора\n}\ncategory: power\nrequirements:[\nlead/20\ncopper/20\n]"
+  },
+  {
+    "name": "Бур (Серпуло)",
+    "data": "name: \"Обычный бур\"\ndescription: \"Обычный бур, подобный другим бурам на Серпуло.\"\ntype: Drill\nsize:2\nhealth:160\ntier:2\ndrillTime:600\nitemCapacity:10\nrotateSpeed:2\nconsumes:{\nliquid:{\nliquid: water\namount:0.05\noptional:true\nbooster:true\n}\n}\nrequirements:[\ncopper/12\n]\ncategory: production"
+  },
+  {
+    "name": "Фабрика единиц",
+    "data": "name: Фабрика мехов\ndescription: Создает единицы.\ntype: UnitFactory\nhealth: 300\nsize: 3\nplans:[\n{\nunit: flare\nrequirements:[\nsilicon/15\n]\ntime: 90\n}\n{\nunit: dagger\nrequirements:[\nsilicon/30\nlead: 15\n]\ntime: 2100\n}\n{\nunit: risso\nrequirements: [\nsilicon/15\nmetaglass/15\n]\ntime: 1800\n}\n]\nfloating: false\nconsumes:{\npower: 1.2\n}\ncategory: units\nresearch: router\nrequirements:[\ncopper/150\nlead/130\nmetaglass/120\n]"
+  },
+  {
+    "name": "Жидкостный бак/роутер",
+    "data": "name: Жидкостный бак\ndescription: Тот же жидкостный роутер, но прокачанный.\ntype: liquidRouter\nhasLiquids: true\nliquidCapacity: 1000\ncategory: liquid\nhealth: 2000\nrequirements: [\ncopper/100\nmetaglass/100\nlead/100\n]\nresearch: router"
+  },
+  {
+    "name": "Хранилище",
+    "data": "name: Контейнер\ndescription: Способно хранить предметы. Разгружается разгрузчиком или блоком с таким же классом.\ntype: Vault \nsize: 2\nhealth: 210\nitemCapacity: 800\nrequirements: [\n copper/100\n titanium/25\n] \nresearch: tin-container\ncategory: effect"
+  },
+  {
+    "name": "Ремонтный проектор",
+    "data": "name: Регенератор\ndescription: Восстанавливает поврежденные блоки в своей области действия.\ntype: MendProjector\ncategory: effect\nrequirements: [\nlead/30\ncopper/25\n]\nconsumes: {\npower:0.3\nitems:{\noptional: true\nbooster: true\nitems:[silicon/1]\n}\n}\nsize: 1\nreload: 200\nrange: 40\nhealPercent: 4\nphaseBoost: 4\nphaseRangeBoost: 20\nhealth: 80\nresearch: router"
+  },
+  {
+    "name": "Сверхприводный проектор",
+    "data": "name: Сверхприводный купол\ndescription: Ускоряет работу близлежащих блоков — турелей, конвейеров, заводов, буров. Ядра и хранилища не в счет.\ntype: OverdriveProjector\nrequirements:[\nlead/100\ntitanium/200\n]\nconsumes:{\npower: 10\nitems:{\nitem:[\nphase-fabric/1\nsilicon/1\n}\n]\n}\nsize: 3\nrange: 200\nspeedBoost: 2.5\nuseTime: 300\nhasBoost: false\ncategory: effect\nresearch: router"
+  },
+  {
+    "name": "Ядро",
+    "data": "type: CoreBlock\nhealth: 3000\nsize: 4\nitemCapacity: 10500\ncategory: effect\nrequirements: [\nlead/2000\ncopper/2000\n]\nalwaysUnlocked: true"
+  },
+  {
+    "name": "Командный центр (ТОЛЬКО V6)",
+    "data": "name: Командный центр\ndescription: \"Пожалуйста, не впихивайте блок этого класса в свой мод для v7 — это вызовет ошибки. Но на v6 и v5 этот шаблон работает.\"\ntype: commandCenter\nrequirements:[\ncopper/200\nlead/200\nsilicon/250\ngraphite/100\n]\nsize: 2\nhealth: size*size*55\ncategory: units\nresearch: router"
+  },
+  {
+    "name": "Фабрика предметов/жидкостей",
+    "data": "type:GenericCrafter\nname: \"Кремниевый плавильный завод\"\ndescription:\"Соединяет песок с чистым углем.\\nПроизводит кремний.\"\noutputItem:silicon/1\nsize:2\nhasPower:true\nhasItems:true\ncraftTime:40\nupdateEffect:steam\nitemCapacity:10\nambientSound: respawning\nambientSoundVolume: 0.5\nconsumes:{\npower:0.5\nitems:{items:[\ncoal/1\nsand/2\n]}}\nrequirements:[\ncopper/30\nlead/25\n]\ncategory:crafting\nresearch:router"
+  },
+  {
+    "name": "Конвейер",
+    "data": "type: Conveyor\nname: Конвейер\ndescription: \"Простой конвейер, как титановый или медный.\"\nhealth:45\nrequirements:[\ncopper/1\nlead/6\n]\ncategory: distribution\nspeed: 0.08 // истинная скорость конвейера. не отображается в информации о блоке.\ndisplayedSpeed: 465 // отображение средней скорости конвейера. необходимо подкручивать под speed.\nresearch: titanium-conveyor"
+  },
+  {
+    "name": "Маршрутизатор, или же роутер",
+    "data": "name: Маршрутизатор\ndescription: Распределяет предметы, поступающие в него. // Максимальное количество возможных выходов (e) расчитывается по формуле e\u003d((size×4)-1)\ntype: router\nsize: 1\nhealth: 100\nresearch: conveyor\ncategory: distribution\nrequirements:[\nlead/10\ncopper/10\n]"
+  },
+  {
+    "name": "Завод одного типа дронов (ТОЛЬКО V5)",
+    "data": "type: DroneCenter\nunitsSpawned: 5 //технически, пока Анюк ещё не убрал этот класс, блок работает, но я не рекомендую его использовать на версиях v6 и выше.\ndroneType: dagger\ndroneConstructTime: 3\ndroneRange: 50\nconsumes: {\npower: 0.1\n}\ncategory: units\nrequirements: [\ncopper/5\n]\nhealth: 4\nsize: 2\n"
+  },
+  {
+    "name": "",
+    "data": ""
+  },
+  {
+    "name": "",
+    "data": ""
+  },
+  {
+    "name": "",
+    "data": ""
   }
 ]

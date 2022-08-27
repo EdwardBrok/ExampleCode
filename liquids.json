@@ -1,18 +1,10 @@
 [
   {
-    "name": "Вода",
-    "data": "name:\"Вода\"\ncolor:\"#596ab8\"\nheatCapacity: 0.4\nalwaysUnlocked: true\neffect:wet"
+    "name": "Жидкость",
+    "data": "barColor: #aaaaaa //цвет для индикатора заполненности блока этой жидкостью\r\ngas: false //теперь эта жидкость - не газ\r\ncolor: #cccccc //цвет, когла жидкость в трубе или разлилась лужей\r\nflammability: 0.93 //воспламеняемость, указал 93%\r\ntemperature: 0.5 //температура, указал 50%\r\nheatCapacity: 0.29 //теплоемкость, указал 29%\r\nviscosity: 0.71 // вязкость, указал 71% - будет более вязкая, чем вода\r\ncoolant: true //теперь жидкость можно использовать как хладагент\r\nmoveThroughBlocks: true \r\n/*    теперь эта жидкость будет двигаться сквозь блоки,\r\n      если есть лужа этой жидкости*/\r\nincinerable: true \r\n/*    теперь эта жидкость может быть утилизирована в мусоросжигателе*/\r\neffect: unmoving //наложит эффект \"Обездвижен\" на единицу, если она наступит на лужу\r\n"
   },
   {
-    "name": "Нефть",
-    "data": "name:\"Нефть\"\ncolor:\"#313131\"\nheatCapacity: 0.4\nalwaysUnlocked: true\neffect:tarred\nviscosity:0.7\nflammability:1.2\nexplosiveness:1.2\nheatCapacity:0.7\nbarColor:\"#6b675f\""
-  },
-  {
-    "name": "Шлак",
-    "data": ""
-  },
-  {
-    "name": "Креогенная жидкость",
-    "data": ""
+    "name": "Газ",
+    "data": "gas: true //теперь эта жидкость - газ\r\ngasColor: #ff0000\r\nbarcolor: #ffff00\r\nflammability: 0.33 //воспламеняемость, указал 33%\r\ntemperature: 0.5 //температура, указал 50%\r\nheatCapacity: 0.24 //теплоемкость, указал 24%\r\nincinerable: false //теперь эта жидкость утилизирована в мусоросжигателе быть не может\n"
   }
 ]
